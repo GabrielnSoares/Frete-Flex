@@ -1,8 +1,10 @@
 package br.gabnsoares.dev.freteflex.domain;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(value = "standardShippingCalculator")
+@Primary // implementacao padrão
 public class StandardShippingCalculator implements ShippingCalculator {
 
     @Override

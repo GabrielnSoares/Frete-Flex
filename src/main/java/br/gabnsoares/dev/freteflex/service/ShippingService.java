@@ -2,6 +2,7 @@ package br.gabnsoares.dev.freteflex.service;
 
 import br.gabnsoares.dev.freteflex.domain.ExpressShippingCalculator;
 import br.gabnsoares.dev.freteflex.domain.StandardShippingCalculator;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service  // bean controlado pelo spring container
@@ -10,7 +11,8 @@ public class ShippingService {
     private final StandardShippingCalculator standardShippingCalculator;
     private final ExpressShippingCalculator expressShippingCalculator;
 
-    public ShippingService(StandardShippingCalculator standardShippingCalculator, ExpressShippingCalculator expressShippingCalculator) {
+    public ShippingService(@Qualifier("standardShippingCalculator") StandardShippingCalculator standardShippingCalculator,
+                           @Qualifier("expressShippingCalculator")ExpressShippingCalculator expressShippingCalculator) {
         this.standardShippingCalculator = standardShippingCalculator;
         this.expressShippingCalculator = expressShippingCalculator;
     }
